@@ -1,0 +1,106 @@
+.create-post{
+    padding: 20px;
+    background: rgb(3, 161, 209);
+}
+
+.create-post input, .create-post button{
+    padding: 20px;
+    border: 0px;
+    outline: none;
+    font-size: 1.2rem;
+    color: #333
+}
+
+.create-post button{
+    background: rgb(168, 167, 167);
+    position: relative
+}
+
+.create-post button:hover{
+    cursor: pointer;
+}
+
+.create-post button:active{
+    animation: pressed .25s ease-in-out
+}
+
+.post{
+    padding: 30px;
+    color: rgb(32, 32, 32);
+    background: #fff;
+    min-height: 200px;
+    position: relative;
+    animation: post-pop .5s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.post p{
+    word-break: break-all;
+    hyphens: auto
+}
+
+.posts-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.post.removed {
+    animation: removed .5s ease-in-out
+}
+
+.posts-logs{
+    color: #fff;
+    text-align: left;
+    padding: 20px
+}
+
+.posts-logs ul{
+    list-style: none;
+    margin-top: 20px
+}
+
+.posts-logs ul li {
+    padding: 20px;
+    background: #fff;
+    color: #444;
+    margin-bottom: 3px
+}
+
+.stamp {
+    background: rgb(0, 140, 255);
+    color: #fff;
+    margin-right: 10px;
+    padding: 5px
+}
+
+.stamp.Posted { background: rgb(0, 140, 255) }
+.stamp.Removed{ background: rgb(255, 0, 76) }
+/* Animations */
+@keyframes post-pop {
+    from {
+        transform: scale(0,0);
+        opacity: .5;
+    }
+
+    to{
+        transform: scale(1,1);
+        opacity: 1;
+    }
+}
+
+@keyframes pressed {
+    to{
+        transform: translateX(-15px)
+    }
+}
+
+@keyframes removed {
+    to {
+        transform: translateY(-1000px);
+        opacity: .5;
+    }
+}
