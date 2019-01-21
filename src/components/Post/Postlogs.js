@@ -11,7 +11,10 @@ const PostList = (props) => {
         <h1>Logs</h1>
         <ul>
             {logs && logs.map((log, i) => {
-                return <li key={i}> <span className={"stamp "+log.action}>{log.created}</span> {log.action}: '<i>{log.content}</i>' </li>
+                return <li key={i}> 
+                          <span className={"stamp "+log.action}>{log.created}</span> 
+                          <span className="post-log">{log.action}: '<i>{log.content}</i>'</span> 
+                       </li>
             })}
         </ul>
     </div>

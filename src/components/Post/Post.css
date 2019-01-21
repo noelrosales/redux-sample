@@ -79,6 +79,7 @@
 
 .stamp.Posted { background: rgb(0, 140, 255) }
 .stamp.Removed{ background: rgb(255, 0, 76) }
+
 /* Animations */
 @keyframes post-pop {
     from {
@@ -102,5 +103,51 @@
     to {
         transform: translateY(-1000px);
         opacity: .5;
+    }
+}
+
+/* Media Query */
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .posts-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .create-post form {
+        display: flex;
+        flex-direction: column
+    }
+
+    .posts-logs ul li {
+        display: flex;
+        flex-direction: column
+    }
+
+    .posts-logs ul li span {
+        flex: 1
+    }
+
+    .post-log {
+        padding: 10px;
+    }
+
+    /* Mobile Animations */
+    @keyframes removed {
+        to {
+            transform: translateX(-1000px);
+            opacity: .5;
+        }
+    }
+
+    @keyframes post-pop {
+        from {
+            transform: translateX(-400px);
+            opacity: .1;
+        }
+    
+        /* to{
+            transform: scale(1,1);
+            opacity: 1;
+        } */
     }
 }

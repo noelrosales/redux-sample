@@ -6,7 +6,6 @@ const initState = {
 }
 
 const postReducer = (state=initState, action) => {
-    console.log(state);
     switch(action.type) {
         case 'GET_POSTS':
             console.log('posts fetched');
@@ -14,8 +13,6 @@ const postReducer = (state=initState, action) => {
         case 'ADD_POST':
             console.log('post added');
             action.newPost.action = 'Posted';
-            console.log('posted',action.newPost)
-            console.log('current', state.logs)
             return {
                 ...state,
                 data:[...state.data, action.newPost],
@@ -23,17 +20,16 @@ const postReducer = (state=initState, action) => {
             }
         case 'REMOVE_POST':
             console.log('post deleted');
-            const newData = [...state.data].filter( item => item.id !== action.id);
+            const newData = [...state.data].filter(item => item.id !== action.id);
             const deletedData = [...state.data].find(data => data.id === action.id);
-            const newLog = [...state.logs, deletedData];
-            newLog.action = 'Removed';
-            console.log(state.logs)
-            
-            // console.log('deleted',deletedData)
+            const newRec = {...deletedData};
+            newRec.action="Removed";
+            newRec.created=moment().format();
+            const newLog = [...state.logs, newRec];
             return {
                 ...state,
                 data: newData,
-                logs: [...state.logs, newLog]
+                logs: newLog
             }
         default:
             return state
