@@ -25,13 +25,15 @@ const postReducer = (state=initState, action) => {
             console.log('post deleted');
             const newData = [...state.data].filter( item => item.id !== action.id);
             const deletedData = [...state.data].find(data => data.id === action.id);
-            deletedData.action = 'Removed';
-            deletedData.created= moment().format();
-            console.log('deleted',deletedData)
+            const newLog = [...state.logs, deletedData];
+            newLog.action = 'Removed';
+            console.log(state.logs)
+            
+            // console.log('deleted',deletedData)
             return {
                 ...state,
                 data: newData,
-                logs: [...state.logs, deletedData]
+                logs: [...state.logs, newLog]
             }
         default:
             return state
