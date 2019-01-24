@@ -1,0 +1,8 @@
+const ACTION = {
+    GET_POSTS: 'GET_POSTS',
+    ADD_POST: 'ADD_POST',
+    REMOVE_POST: 'REMOVE_POST',
+    UPDATE_POST: 'UPDATE_POST'
+}
+
+export default ACTION;

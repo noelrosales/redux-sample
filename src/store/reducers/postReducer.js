@@ -1,4 +1,5 @@
 import moment from 'moment';
+import ACTION from '../actions/types';
 
 const initState = {
     data: [],
@@ -7,10 +8,10 @@ const initState = {
 
 const postReducer = (state=initState, action) => {
     switch(action.type) {
-        case 'GET_POSTS':
+        case ACTION.GET_POSTS:
             console.log('posts fetched');
             return state
-        case 'ADD_POST':
+        case ACTION.ADD_POST:
             console.log('post added');
             action.newPost.action = 'Posted';
             return {
@@ -18,7 +19,7 @@ const postReducer = (state=initState, action) => {
                 data:[...state.data, action.newPost],
                 logs:[...state.logs, action.newPost]
             }
-        case 'REMOVE_POST':
+        case ACTION.REMOVE_POST:
             console.log('post deleted');
             const newData = [...state.data].filter(item => item.id !== action.id);
             const deletedData = [...state.data].find(data => data.id === action.id);
@@ -30,6 +31,16 @@ const postReducer = (state=initState, action) => {
                 ...state,
                 data: newData,
                 logs: newLog
+            }
+        case ACTION.UPDATE_POST:
+            console.log('post updated');
+            const post = [...state.data].find(data => data.id === action.postToUpdate.id);
+            post.status = "read";
+            const updatedPosts = [...state.data]
+            console.log('state', updatedPosts);
+            return {
+                ...state,
+                data: [...updatedPosts]
             }
         default:
             return state

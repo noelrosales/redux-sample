@@ -41,6 +41,14 @@
     hyphens: auto
 }
 
+.post.new {
+    background: rgb(22, 68, 173)
+}
+
+.post.read {
+    background: rgb(27, 33, 47)
+}
+
 .posts-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

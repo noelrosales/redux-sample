@@ -15,3 +15,9 @@ export const deletePost = (id) => {
         dispatch({ type: 'REMOVE_POST', id})
     }
 }
+
+export const updatePost = (postToUpdate) => {
+    return (dispatch, getState) => {
+        dispatch({ type: 'UPDATE_POST', postToUpdate})
+    }
+}

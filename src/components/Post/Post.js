@@ -1,13 +1,9 @@
 import React from 'react'
 import './Post.css'
 import { connect } from 'react-redux';
-import { deletePost } from '../../store/actions/postActions';
+import { deletePost, updatePost } from '../../store/actions/postActions';
 
 class Post extends React.Component{
-
-  state = {
-    status: 'pending'
-  }
 
   handleDelete = () => {
     const { post } = this.props;
@@ -16,14 +12,25 @@ class Post extends React.Component{
     setTimeout(() => this.props.deletePost(id), 400)
   }
 
+  handleUpdate = () => {
+    const { post } = this.props;
+    this.refs.post.classList="post read";
+    this.props.updatePost(post)
+  }
+
   render(){
     const { post } = this.props;
     return (
-      <div ref="post" className="post" onClick={this.handleDelete}>
+      <div 
+        ref="post" 
+        className={"post " + post.status} 
+        onDoubleClick={this.handleDelete}
+        onClick={this.handleUpdate}
+      >
         <p>{post.content}</p>
       </div>
     )
   }
 }
 
-export default connect(null, {deletePost})(Post)
+export default connect(null, {deletePost, updatePost})(Post)

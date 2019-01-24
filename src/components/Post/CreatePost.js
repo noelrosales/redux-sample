@@ -10,7 +10,8 @@ class CreatePost extends Component {
    state = {
        id: uuid(),
        content: '',
-       created: moment().format()
+       created: moment().format(),
+       status: 'new'
    }
 
    handleChange = (e) => {

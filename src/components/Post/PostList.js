@@ -2,10 +2,8 @@ import React from 'react'
 import Post from './Post';
 import './Post.css';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
-const PostList = (props) => {
-  const {posts} = props
+const PostList = ({posts}) => {
 
   return (
     <div className="posts-list">
@@ -20,4 +18,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(PostList))
+export default connect(mapStateToProps)(PostList)
