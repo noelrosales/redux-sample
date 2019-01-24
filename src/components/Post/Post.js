@@ -24,9 +24,11 @@ class Post extends React.Component{
       <div 
         ref="post" 
         className={"post " + post.status} 
-        onDoubleClick={this.handleDelete}
-        onClick={this.handleUpdate}
       >
+        <div className="post-overlay">
+          <div className="update" onClick={this.handleUpdate}><button>Marked as Done</button></div>
+          <div className="remove" onClick={this.handleDelete}><button>Remove this Post</button></div>
+        </div>
         <p>{post.content}</p>
       </div>
     )

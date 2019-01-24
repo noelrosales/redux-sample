@@ -36,11 +36,16 @@ const postReducer = (state=initState, action) => {
             console.log('post updated');
             const post = [...state.data].find(data => data.id === action.postToUpdate.id);
             post.status = "read";
-            const updatedPosts = [...state.data]
+            const upd = {...post};
+            upd.action = "Updated";
+            upd.created = moment().format();
+           
+            const updatedPosts = [...state.data];
             console.log('state', updatedPosts);
             return {
                 ...state,
-                data: [...updatedPosts]
+                data: [...updatedPosts],
+                logs: [...state.logs, upd]
             }
         default:
             return state
