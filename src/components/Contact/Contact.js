@@ -6,7 +6,7 @@ const Contact = () => {
     <div className="contact">
         <div className="card">
           <h1>Contact Us</h1>
-          <form name="contact" action="/success" method="POST" data-netlify="true">
+          <form name="contact" method="POST" data-netlify="true">
                 <p>
                     <label>Your Name: </label><input type="text" name="name" />   
                 </p>
