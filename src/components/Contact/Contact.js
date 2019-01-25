@@ -6,7 +6,7 @@ const Contact = () => {
     <div className="contact">
         <div className="card">
           <h1>Contact Us</h1>
-          <form name="contact" action="/success" method="post">
+          <form name="contact" method="post">
                 <input type="hidden" name="form-name" value="contact" />
                 <p>
                     <label>Your Name: </label><input type="text" name="name" />   
