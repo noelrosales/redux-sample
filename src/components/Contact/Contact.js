@@ -6,8 +6,8 @@ const Contact = () => {
     <div className="contact">
         <div className="card">
           <h1>Contact Us</h1>
-          <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                <input type="hidden" name="contact" value="contact" />
+          <form name="contact" method="post">
+                <input type="hidden" name="form-name" value="contact" />
                 <p>
                     <label>Your Name: </label><input type="text" name="name" />   
                 </p>
