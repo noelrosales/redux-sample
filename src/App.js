@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Navbar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Contact from './components/Contact/Contact';
+import Success from './components/Success/Success';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/posts" component={PostList} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/success" component={Success} />
         </Switch>
       </div>
     );

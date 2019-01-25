@@ -1,0 +1,53 @@
+.success {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10px 15%;
+    animation: about-pop .5s ease-in-out
+}
+
+.success .card {
+    background: #ffffff;
+    padding: 20px;
+    color: #333;
+    text-align: justify
+}
+
+.success .card header {
+    font-size: 2rem;
+}
+
+.success .card section {
+    margin-top: 20px
+}
+
+.success a{
+    background: rgb(0, 38, 255);
+    color: #fff;
+    padding:10px;
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none
+}
+
+
+@keyframes about-pop {
+    from {
+        opacity: .1;
+    }
+}
+
+/* Media Query */
+@media only screen and (max-width: 768px) {
+    .success {
+        padding: 10px
+    }
+
+    @keyframes about-pop {
+        from {
+            transform: translateX(-400px);
+            opacity: .1;
+        }
+    }
+    
+}
