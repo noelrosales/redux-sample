@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav>
         <div className='brand'>
-            <Link to='/'>Post It - Mark It- Delete It</Link>
+            <Link to='/'>Post It - Mark It- Delete It(Sample)</Link>
         </div>
         <ul>
             <li><NavLink to='/posts'>Posts</NavLink></li>
